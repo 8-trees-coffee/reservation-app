@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
     login(loginFrom: any) {
         this.authService.login(loginFrom.value).subscribe(
             (token) => {
-                console.log(token)
                 this.router.navigate(['/products'])
             },
             (err: HttpErrorResponse) => {

@@ -1,7 +1,14 @@
 const express = require('express')
 const router = express.Router()
 const Product = require('../model/product')
+const UserCtrl = require('../controllers/user')
 
+
+// // router.get('/secret', UserCtrl.setMiddleware,
+// //     async (req, res) => {
+// //         return res.json({"secret": true})
+// //     }
+// )
 
 router.get('',
     async (req, res) => {
@@ -10,7 +17,7 @@ router.get('',
     }
 )
 
-router.get('/:productId',
+router.get('/:productId', UserCtrl.setMiddleware, 
     async (req, res) => {
         const productId = req.params.productId
         try{
